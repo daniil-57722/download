@@ -6,8 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class playmusic {
-    void play(){
-    try (FileInputStream inputStream = new FileInputStream("parallel/music.mp3")) {
+    void play(String path){
+    try (FileInputStream inputStream = new FileInputStream(path+"/music.mp3")) {
         try {
             Player player = new Player(inputStream);
             player.play();
@@ -16,6 +16,6 @@ public class playmusic {
         }
     } catch (IOException e) {
         e.printStackTrace();
+        }
     }
-}
 }

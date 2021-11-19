@@ -2,7 +2,6 @@ package ParallelDownloading;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -21,7 +20,7 @@ public class DownloadThread implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("процесс скачивания "+extension+" файла начался");
+        System.out.println("процесс скачивания "+extension.substring(1)+" файла начался");
         try {
             URL url = new URL(link);
             ReadableByteChannel byteChannel = Channels.newChannel(url.openStream());
@@ -32,6 +31,7 @@ public class DownloadThread implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("процесс скачивания "+extension+" файла завершился");
+        System.out.println("процесс скачивания "+extension.substring(1) +" файла завершился");
+        System.out.println("файл находится по пути "+path);
     }
 }
